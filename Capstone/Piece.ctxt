@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=teamNum
+comment0.target=Piece(int)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Pieces\r\n
+comment1.params=
+comment1.target=int\ getTeam()
+comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \ \ \ that\ describes\ the\ operation\ of\ the\ method\r\n\r\n\ @pre\ \ \ \ \ \ \ \ preconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ \ \ (what\ the\ method\ assumes\ about\ the\ method's\ parameters\ and\ class's\ state)\r\n\ @post\ \ \ \ postconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ \ \ (what\ the\ method\ guarantees\ upon\ completion)\r\n\ @param\ \ \ \ y\ \ \ \ description\ of\ parameter\ y\r\n\ @return\ \ \ \ description\ of\ the\ return\ value\r\n
+comment2.params=
+comment2.target=java.lang.String\ getType()
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \ that\ describes\ the\ operation\ of\ the\ method\r\n\r\n\ @pre\ \ \ \ \ preconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ (what\ the\ method\ assumes\ about\ the\ method's\ parameters\ and\ class's\ state)\r\n\ @post\ \ \ \ postconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ (what\ the\ method\ guarantees\ upon\ completion)\r\n\ @param\ \ \ y\ \ \ description\ of\ parameter\ y\r\n\ @return\ \ description\ of\ the\ return\ value\r\n
+comment3.params=
+comment3.target=int[][]\ getMoveDirections()
+comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \ that\ describes\ the\ operation\ of\ the\ method\r\n\r\n\ @pre\ \ \ \ \ preconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ (what\ the\ method\ assumes\ about\ the\ method's\ parameters\ and\ class's\ state)\r\n\ @post\ \ \ \ postconditions\ for\ the\ method\r\n\ \ \ \ \ \ \ \ \ \ (what\ the\ method\ guarantees\ upon\ completion)\r\n\ @param\ \ \ y\ \ \ description\ of\ parameter\ y\r\n\ @return\ \ description\ of\ the\ return\ value\r\n
+numComments=4
