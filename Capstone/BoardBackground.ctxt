@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BoardBackground()
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Building\r\n\ @pre\ \ \ \ \ all\ numberical\ values\ are\ positive\ integers\r\n\ @param\ \ \ x\ \ \ the\ x\ cordinate\ of\ the\ top\ left\ corner\ of\ the\ building\r\n\ @param\ \ \ y\ \ \ the\ y\ cordinate\ of\ the\ top\ left\ corner\ of\ the\ building\r\n\ @param\ \ \ hei\ the\ height\ of\ the\ building\r\n\ @param\ \ \ wid\ the\ width\ of\ the\ building\r\n\ @param\ \ \ color1\ the\ color\ of\ the\ building\r\n\ @param\ \ \ color2\ the\ color\ of\ the\ windows\ on\ the\ building\r\n
+comment1.params=g2
+comment1.target=void\ draw(java.awt.Graphics2D)
+comment1.text=\r\n\ The\ draw\ method\ draws\ the\ building\ object\ based\ on\ the\ attributes\r\n\ provided\ in\ the\ constructor\r\n\r\n\ @param\ \ \ \ g2\ \ \ \ a\ Graphics2D\ object\r\n
+numComments=2
