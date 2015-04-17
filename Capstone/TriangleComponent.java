@@ -31,8 +31,8 @@ public class TriangleComponent extends JComponent
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         
-        BoardBackground b1 = new BoardBackground();
-        b1.draw(g2);
+         
+        board.draw(g2);
     }
    
     
