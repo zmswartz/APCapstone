@@ -7,20 +7,8 @@ public class Tester
         board.printer();
         
         System.out.println("\n");
+        System.out.println(Arrays.toString(board.getAllMoves(-1)));
         
-        
-        board.makeMove("1203");
-        
-        
-        board.makeMove("0314");
-        System.out.println("\n");
-        board.printer();
-        board.forcedMove(-1);
-        
-        
-//         board.makeMove("2305");
-//         System.out.println("\n");
-//         board.printer();
     }
     
     

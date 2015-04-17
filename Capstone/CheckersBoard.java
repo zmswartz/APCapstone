@@ -64,6 +64,7 @@ public class CheckersBoard
         }
 
     }
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -78,7 +79,7 @@ public class CheckersBoard
     public boolean isPossibleMove(int player)
     {
         // put your code here
-        return false;
+        return forcedMove(player).length!=0 || getAllMoves(player).length!=0;
     }
 
     /**
@@ -113,14 +114,19 @@ public class CheckersBoard
                         {
                             int newX2 = newX + directions[i][0];
                             int newY2 = newY + directions[i][1];
-                            if(newX2 > 0 && newX2 < 7 && newY2 > 0 && newY2 < 7 && getPieceAt(newX2, newY2) ==null)
+                            if(getPieceAt(newX, newY).getTeam() !=player)
                             {
-                                String thisMove = "";
-                                thisMove += x;
-                                thisMove += y;
-                                thisMove += (newX2);
-                                thisMove += (newY2);
-                                forced.add(thisMove);
+                                if(newX2 >= 0 && newX2 <= 7 && newY2 >= 0 && newY2 <= 7 && getPieceAt(newX2, newY2) ==null)
+                                {
+
+                                    String thisMove = "";
+                                    thisMove += x;
+                                    thisMove += y;
+                                    thisMove += (newX2);
+                                    thisMove += (newY2);
+                                    forced.add(thisMove);
+                                }
+
                             }
                         }
 
@@ -219,8 +225,46 @@ public class CheckersBoard
 
         return moves;
     }
-
     
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public String[] getAllMoves(int player)
+    {
+        // put your code here
+        ArrayList<String> moves = new ArrayList<String>();
+        for(int y = 0; y < game.length; y++)
+        {
+            for(int x = 0; x < game[0].length; x++)
+            {
+                if(getPieceAt(x,y) != null && getPieceAt(x,y).getTeam() == player)
+                {
+                    String[] temp = getMovesOfPiece(x,y);
+                    for(int i = 0; i < temp.length; i++)
+                    {
+                        moves.add(temp[i]);
+                    }
+                }
+            }
+        }
+        
+        String[] movesArray = new String[moves.size()];
+        for(int i = 0; i < movesArray.length; i++)
+        {
+            movesArray[i] = moves.get(i);
+        }
+        return movesArray;
+    }
+
+
     public void printer()
     {
         for (int i = 0; i <8 ; i++)
