@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=TriangleComponent()
+comment0.target=CheckersComponent()
 comment1.params=g
 comment1.target=void\ paintComponent(java.awt.Graphics)
 numComments=2

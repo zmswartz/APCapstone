@@ -1,13 +1,13 @@
 import javax.swing.JFrame;
 
-public class TriangleViewer
+public class CheckersViewer
 {
     public static void main(String[] args)
     {
-        JFrame frame = new TriangleFrame();
+        JFrame frame = new CheckersFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(818,840);
-        frame.setTitle("TriangleViewer");
+        frame.setTitle("CheckersViewer");
         frame.setVisible(true);
     }
     

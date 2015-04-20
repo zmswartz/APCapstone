@@ -7,7 +7,7 @@ public class Tester
         board.printer();
         
         System.out.println("\n");
-        System.out.println(Arrays.toString(board.getAllMoves(-1)));
+        System.out.println(Arrays.toString(board.getMovesOfPiece(1,2)));
         
     }
     

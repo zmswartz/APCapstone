@@ -20,6 +20,7 @@ public class CheckersBoard
     private Color col1;
     private Color col2;
     private int length;
+    int[] locationSelected;
     /**
      * Default constructor for objects of class CheckersBoard
      */
@@ -32,7 +33,7 @@ public class CheckersBoard
         this.ycord = 0;
         this.height = 800;
         this.width = 800;
-        this.col1 = Color.BLACK;
+        this.col1 = Color.GRAY;
         this.col2 = Color.WHITE;
         this.length = 100;
     }
@@ -299,7 +300,7 @@ public class CheckersBoard
     public void draw(Graphics2D g2)
     {
         // put your code here
-        g2.setColor(Color.BLACK);
+        g2.setColor(Color.GRAY);
         Rectangle2D.Double rect1 = new Rectangle2D.Double(this.xcord,this.ycord,
                 this.width,this.height);
         g2.draw(rect1);
@@ -325,6 +326,60 @@ public class CheckersBoard
             }
         }
 
-                                        
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++)
+            {
+                Piece temp = getPieceAt(j,i);
+                g2.setColor(Color.RED);
+                if(temp != null)
+                {
+                    if(temp.getTeam() == 1)
+                    {
+                        g2.setColor(Color.BLACK);
+                    }
+                    Ellipse2D.Double ell = new Ellipse2D.Double(j*100, i*100, this.length, this.length);
+                    g2.fill(ell);
+                }
+            }
+        }
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public void actionAt(int x, int y, int player)
+    {
+        if(locationSelected == null || getPieceAt(locationSelected[0] , locationSelected[1]) == null)
+        {
+            locationSelected = new int[] {x, y};
+        }
+        else
+        {
+            if( getPieceAt(locationSelected[0],locationSelected[1]).getTeam() == player)
+            {
+                String thisMove = "";
+                thisMove += locationSelected[0]; thisMove += locationSelected[1];thisMove += x; thisMove += y;
+                String[] moves = getMovesOfPiece(locationSelected[0] ,locationSelected[1]);
+                for(int i = 0; i < moves.length; i++)
+                {
+                    if( moves[i].compareTo(thisMove) == 0)
+                    {
+                        makeMove(thisMove);
+                    }
+
+                }
+            }
+            locationSelected = null;
+
+        }
     }
 }

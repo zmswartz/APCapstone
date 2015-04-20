@@ -1,4 +1,8 @@
-
+import java.util.ArrayList;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.Color;
 
 /**
  * Write a description of class Pieces here.
@@ -52,7 +56,8 @@ public class Piece
         // put your code here
         return "Men";
     }
-    
+    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -75,6 +80,7 @@ public class Piece
         
         return moves;
     }
+
 
 
 }
