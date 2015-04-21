@@ -20,7 +20,9 @@ public class CheckersBoard
     private Color col1;
     private Color col2;
     private int length;
-    int[] locationSelected;
+    private int[] locationSelected;
+    private int currentPlayer;
+    private boolean isForcedMove;
     /**
      * Default constructor for objects of class CheckersBoard
      */
@@ -36,7 +38,49 @@ public class CheckersBoard
         this.col1 = Color.GRAY;
         this.col2 = Color.WHITE;
         this.length = 100;
+        currentPlayer = 1;
+        isForcedMove = false;
     }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public int getCurrentPlayer()
+    {
+        // put your code here
+        return currentPlayer;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public void changePlayer()
+    {
+        if (currentPlayer == -1)
+        {
+            currentPlayer = 1;
+            return;
+        }
+        currentPlayer = -1;
+    }
+
+
 
     /**
      * An example of a method - replace this comment with your own
@@ -340,6 +384,11 @@ public class CheckersBoard
                     }
                     Ellipse2D.Double ell = new Ellipse2D.Double(j*100, i*100, this.length, this.length);
                     g2.fill(ell);
+                    if(temp.getType().compareTo("King") == 0)
+                    {
+                        Rectangle2D.Double rect2 =new Rectangle2D.Double(j*100,i*100,
+                        20,20);
+                    }
                 }
             }
         }
@@ -368,12 +417,25 @@ public class CheckersBoard
             {
                 String thisMove = "";
                 thisMove += locationSelected[0]; thisMove += locationSelected[1];thisMove += x; thisMove += y;
-                String[] moves = getMovesOfPiece(locationSelected[0] ,locationSelected[1]);
+                String[] moves;
+                if(isForcedMove)
+                {
+                   moves = forcedMove(currentPlayer);
+                }
+                else
+                {
+                    moves = getMovesOfPiece(locationSelected[0] ,locationSelected[1]);
+                }
                 for(int i = 0; i < moves.length; i++)
                 {
                     if( moves[i].compareTo(thisMove) == 0)
                     {
                         makeMove(thisMove);
+                        if((isForcedMove && forcedMove(currentPlayer).length==0)|| !isForcedMove)
+                        {
+                            changePlayer();
+                        }
+                        
                     }
 
                 }
@@ -382,4 +444,30 @@ public class CheckersBoard
 
         }
     }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public void continuePlay()
+    {
+        
+        
+        if(forcedMove(currentPlayer).length!=0)
+        {
+            System.out.println("There is a forced move");
+            isForcedMove = true;
+            return;
+        }
+        
+        isForcedMove = false;
+    }
+
 }

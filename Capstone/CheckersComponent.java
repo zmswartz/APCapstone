@@ -19,14 +19,13 @@ import java.util.ArrayList;
  */
 public class CheckersComponent extends JComponent
 {
-    int[] locationSelected;
     CheckersBoard board;
-    int currentPlayer;
+    
     public CheckersComponent()
     {
         board = new CheckersBoard();
         MouseListener l = new MousePressListener();
-        currentPlayer = 1;
+        
         addMouseListener(l);
         
     }
@@ -50,25 +49,15 @@ public class CheckersComponent extends JComponent
             int x = event.getX()/100;
             int y = event.getY()/100;
             
-            board.actionAt(x,y, currentPlayer);
+            board.actionAt(x,y, board.getCurrentPlayer());
             
             repaint();
             
-            changePlayer();
+            board.continuePlay();
             
-            while(board.forcedMove(currentPlayer) 
+            
         }
         public void mouseEntered(MouseEvent event) {}
         public void mouseExited(MouseEvent event) {}
-    }
-    
-    private void changePlayer()
-    {
-        if (currentPlayer == -1)
-        {
-            currentPlayer = 1;
-            return;
-        }
-        currentPlayer = -1;
     }
 }
