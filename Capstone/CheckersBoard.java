@@ -41,7 +41,7 @@ public class CheckersBoard
         currentPlayer = 1;
         isForcedMove = false;
     }
-    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -58,7 +58,7 @@ public class CheckersBoard
         // put your code here
         return currentPlayer;
     }
-    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -79,8 +79,6 @@ public class CheckersBoard
         }
         currentPlayer = -1;
     }
-
-
 
     /**
      * An example of a method - replace this comment with your own
@@ -124,7 +122,11 @@ public class CheckersBoard
         {
             game[(y+oldY)/2][(x+oldX)/2] = null;
         }
-
+        makeKing();
+        if(isGameOver())
+        {
+            System.out.println("Game Over");
+        }
     }
 
     /**
@@ -386,8 +388,10 @@ public class CheckersBoard
                     g2.fill(ell);
                     if(temp.getType().compareTo("King") == 0)
                     {
-                        Rectangle2D.Double rect2 =new Rectangle2D.Double(j*100,i*100,
-                        20,20);
+                        Rectangle2D.Double rect2 =new Rectangle2D.Double(j*100 +40 ,i*100 +40,
+                                20,20);
+                        g2.setColor(Color.WHITE);
+                        g2.fill(rect2);
                     }
                 }
             }
@@ -407,7 +411,8 @@ public class CheckersBoard
      */
     public void actionAt(int x, int y, int player)
     {
-        if(locationSelected == null || getPieceAt(locationSelected[0] , locationSelected[1]) == null)
+        if(locationSelected == null || getPieceAt(locationSelected[0] , locationSelected[1]) == null
+                      || getPieceAt(locationSelected[0] , locationSelected[1]).getTeam()!= player)
         {
             locationSelected = new int[] {x, y};
         }
@@ -420,7 +425,7 @@ public class CheckersBoard
                 String[] moves;
                 if(isForcedMove)
                 {
-                   moves = forcedMove(currentPlayer);
+                    moves = forcedMove(currentPlayer);
                 }
                 else
                 {
@@ -435,7 +440,7 @@ public class CheckersBoard
                         {
                             changePlayer();
                         }
-                        
+
                     }
 
                 }
@@ -444,7 +449,7 @@ public class CheckersBoard
 
         }
     }
-    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -458,16 +463,84 @@ public class CheckersBoard
      */
     public void continuePlay()
     {
-        
-        
         if(forcedMove(currentPlayer).length!=0)
         {
             System.out.println("There is a forced move");
             isForcedMove = true;
             return;
         }
-        
+
         isForcedMove = false;
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public void makeKing()
+    {
+        // put your code here
+        for(int j = 0; j < game[0].length; j++)
+        {
+            Piece temp = getPieceAt(j,0);
+            if(temp != null && temp.getTeam() == -1)
+            {
+                game[0][j] = new King(-1);
+            }
+        }
+
+        for(int j = 0; j < game[0].length; j++)
+        {
+            Piece temp = getPieceAt(j,game.length -1);
+            if(temp != null && temp.getTeam() == 1)
+            {
+                game[game.length-1][j] = new King(1);
+            }
+        }
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public boolean isGameOver()
+    {
+        // put your code here
+        boolean player1 = true;
+        boolean player2 = true;
+        for(int i = 0; i < game.length; i++)
+        {
+            for(int j = 0; j < game.length; j++)
+            {
+                Piece temp = getPieceAt(j,i);
+                if(temp != null)
+                {
+                    if(temp.getTeam() == 1)
+                    {
+                        player1 =false;
+                    }
+                    else
+                    {
+                        player2 = false;
+                    }
+                }
+            }
+        }
+        return player1 && player2;
     }
 
 }

@@ -4,11 +4,16 @@ public class Tester
     public static void main(String[] args)
     {
         CheckersBoard board = new CheckersBoard();
-        board.printer();
+        
         
         System.out.println("\n");
-        System.out.println(Arrays.toString(board.getMovesOfPiece(1,2)));
         
+        board.makeMove("6143");
+        board.makeMove("7061");
+        
+        board.makeMove("0770");
+        board.printer();
+        getMovesOfPiece(7,0);
     }
     
     
