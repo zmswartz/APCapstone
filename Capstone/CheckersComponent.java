@@ -46,6 +46,7 @@ public class CheckersComponent extends JComponent
         public void mouseClicked(MouseEvent event) 
         {
             
+            
             int x = event.getX()/100;
             int y = event.getY()/100;
             
@@ -53,7 +54,10 @@ public class CheckersComponent extends JComponent
             
             repaint();
             
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            
             board.continuePlay();
+            
             
             
         }

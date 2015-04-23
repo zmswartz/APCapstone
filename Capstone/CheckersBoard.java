@@ -1,8 +1,9 @@
- import java.util.ArrayList;
+import java.util.ArrayList;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.Color;
+
 /**
  * Write a description of class CheckersBoard here
  * 
@@ -23,7 +24,6 @@ public class CheckersBoard
     private int[] locationSelected;
     private int currentPlayer;
     private boolean isForcedMove;
-    private String text;
     /**
      * Default constructor for objects of class CheckersBoard
      */
@@ -79,7 +79,33 @@ public class CheckersBoard
             return;
         }
         currentPlayer = -1;
+        
     }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *  that describes the operation of the method
+     *
+     * @pre     preconditions for the method
+     *          (what the method assumes about the method's parameters and class's state)
+     * @post    postconditions for the method
+     *          (what the method guarantees upon completion)
+     * @param   y   description of parameter y
+     * @return  description of the return value
+     */
+    public void displayCurrentPlayer()
+    {
+        // put your code here
+        String player;
+        if(getCurrentPlayer() == -1)
+        {
+            player = "Red's Turn";
+        }
+        else
+            player = "Black's Turn";
+        System.out.println(player);
+    }
+
 
     /**
      * An example of a method - replace this comment with your own
@@ -410,7 +436,7 @@ public class CheckersBoard
     public void actionAt(int x, int y, int player)
     {
         if(locationSelected == null || getPieceAt(locationSelected[0] , locationSelected[1]) == null
-                      || getPieceAt(locationSelected[0] , locationSelected[1]).getTeam()!= player)
+        || getPieceAt(locationSelected[0] , locationSelected[1]).getTeam()!= player)
         {
             locationSelected = new int[] {x, y};
         }
@@ -461,8 +487,11 @@ public class CheckersBoard
      */
     public void continuePlay()
     {
+        displayCurrentPlayer();
         if(forcedMove(currentPlayer).length!=0)
         {
+            
+            
             System.out.println("There is a forced move");
             isForcedMove = true;
             return;
@@ -540,12 +569,12 @@ public class CheckersBoard
         }
         if(player1)
         {
-            System.out.println("Player 1 Wins");
+            System.out.println("Red Player Wins");
         }
-        
+
         if(player2)
         {
-            System.out.println("Player 2 Wins");
+            System.out.println("Black Player Wins");
         }
     }
 
