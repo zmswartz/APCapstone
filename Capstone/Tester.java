@@ -13,7 +13,8 @@ public class Tester
         
         board.makeMove("0770");
         board.printer();
-        getMovesOfPiece(7,0);
+        System.out.println(Arrays.toString(board.getMovesOfPiece(7,0)));
+        System.out.println(Arrays.toString(board.forcedMove(-1)));
     }
     
     

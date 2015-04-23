@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+ import java.util.ArrayList;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -23,6 +23,7 @@ public class CheckersBoard
     private int[] locationSelected;
     private int currentPlayer;
     private boolean isForcedMove;
+    private String text;
     /**
      * Default constructor for objects of class CheckersBoard
      */
@@ -38,7 +39,7 @@ public class CheckersBoard
         this.col1 = Color.GRAY;
         this.col2 = Color.WHITE;
         this.length = 100;
-        currentPlayer = 1;
+        currentPlayer = -1;
         isForcedMove = false;
     }
 
@@ -123,10 +124,7 @@ public class CheckersBoard
             game[(y+oldY)/2][(x+oldX)/2] = null;
         }
         makeKing();
-        if(isGameOver())
-        {
-            System.out.println("Game Over");
-        }
+        isGameOver();
     }
 
     /**
@@ -517,7 +515,7 @@ public class CheckersBoard
      * @param   y   description of parameter y
      * @return  description of the return value
      */
-    public boolean isGameOver()
+    public void isGameOver()
     {
         // put your code here
         boolean player1 = true;
@@ -540,7 +538,15 @@ public class CheckersBoard
                 }
             }
         }
-        return player1 && player2;
+        if(player1)
+        {
+            System.out.println("Player 1 Wins");
+        }
+        
+        if(player2)
+        {
+            System.out.println("Player 2 Wins");
+        }
     }
 
 }

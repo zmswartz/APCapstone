@@ -36,7 +36,8 @@ public class King extends Piece
         // put your code here
         return "King";
     }
-    
+    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -57,9 +58,9 @@ public class King extends Piece
         moves[1][0] = -1;
         moves[1][1] = 1;//left down
         moves[2][0] = 1;
-        moves[0][1] = -1;// right up
-        moves[2][0] = -1;
-        moves[0][1] = -1;//left up
+        moves[2][1] = -1;// right up
+        moves[3][0] = -1;
+        moves[3][1] = -1;//left up
         return moves;
     }
 
