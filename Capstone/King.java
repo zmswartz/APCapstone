@@ -3,12 +3,12 @@
 /**
  * Write a description of class King here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (zmswartz
+ * @version 4/24/15
  */
 public class King extends Piece
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    
     
 
     /**
@@ -21,15 +21,9 @@ public class King extends Piece
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * Returns what type of piece this piece is
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @return  returns the name of the piece it is
      */
     public String getType()
     {
@@ -39,15 +33,9 @@ public class King extends Piece
     
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Returns the directions that the piece can move as a 2D array
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @return  directions that the piece can move
      */
     public int[][] getMoveDirections()
     {

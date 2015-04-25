@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=CheckersComponent()
+comment0.text=\r\n\ Default\ constructor\ for\ a\ CheckersComponent\r\n
 comment1.params=g
 comment1.target=void\ paintComponent(java.awt.Graphics)
+comment1.text=\r\n\ Paints\ the\ component\r\n\r\n\ @param\ \ g\ \ a\ graphics\ object\r\n
 numComments=2

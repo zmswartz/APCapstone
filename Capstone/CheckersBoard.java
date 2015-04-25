@@ -7,12 +7,12 @@ import java.awt.Color;
 /**
  * Write a description of class CheckersBoard here
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author zmswartz
+ * @version 4/24/15
  */
 public class CheckersBoard
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    
     private Piece[][] game;
     private int xcord;
     private int ycord;
@@ -44,15 +44,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Returns the number that represents the current player
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @return  the number of the current player
      */
     public int getCurrentPlayer()
     {
@@ -61,15 +56,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Changes the current player to the other player
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    currentPlayer has been changed to the other player
      */
     public void changePlayer()
     {
@@ -81,17 +71,13 @@ public class CheckersBoard
         currentPlayer = -1;
         
     }
-    
+    
+
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Prints the current player's color
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    prints out the current player
      */
     public void displayCurrentPlayer()
     {
@@ -108,15 +94,12 @@ public class CheckersBoard
 
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * Returns the piece at the x and y value
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @pre        the CheckersBoard object is initialized
+     * @param    x    the x coordinate
+     *  @param         y    the y coordinate
+     * @return    the piece at the x and y value
      */
     public Piece getPieceAt(int x, int y)
     {
@@ -125,15 +108,11 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Makes the move that is passed in and removes a piece if it is jumped over
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    a piece is moved from one location to another
+     * @param   move   the move to be made in the format of oldX + oldY + newX + newY as a String
      */
     public void makeMove(String move)
     {
@@ -154,15 +133,11 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Checks if there is a possible move to be made for a given player
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @param   player   the value of the player
+     * @return  true if there is a possible move, false if not
      */
     public boolean isPossibleMove(int player)
     {
@@ -171,15 +146,11 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Returns a list of all of the possible forced moves a player must make
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @param   player   the value of the player
+     * @return  an array of all of the forced moves of a given player
      */
     public String[] forcedMove(int player)
     {
@@ -231,15 +202,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Sets the game array to initial state
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    game array is at its initial state
      */
     public void makeBoard()
     {
@@ -256,7 +222,6 @@ public class CheckersBoard
         {
             game[1][j] = new Piece(1);
         }
-
         for (int j = 1 ; j < 8; j = j+2)
         {
             game[6][j] = new Piece(-1) ;
@@ -272,15 +237,12 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Returns an array with all of the possible moves of a given piece
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @param   x   the x coordinate of the piece
+     * @param         y   the y coordinate of the piece
+     * @return  an array of all of the moves of a piece
      */
     public String[] getMovesOfPiece(int x, int y)
     {
@@ -315,15 +277,11 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Returns all of the possible moves a player can make
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @param   player   the value of the current player
+     * @return  an array of all of the moves the player can make
      */
     public String[] getAllMoves(int player)
     {
@@ -351,7 +309,13 @@ public class CheckersBoard
         }
         return movesArray;
     }
-
+    
+    /**
+     * A method used during the early stages of testing which prints the pieces as 1 or -1 and puts tabs between them
+     *
+     * @pre     the CheckersBoard object is initialized
+     * @post    prints out the current state of the board
+     */
     public void printer()
     {
         for (int i = 0; i <8 ; i++)
@@ -366,7 +330,14 @@ public class CheckersBoard
             System.out.println();
         }
     }
-
+    
+    /**
+     * Draws the current state of the board. Kings are drawn with white boxes inside of them
+     *
+     * @pre     the CheckersBoard object is initialized
+     * @post    the current state of the board is draws
+     * @param   g2   a Graphics2D object to draw with
+     */
     public void draw(Graphics2D g2)
     {
         // put your code here
@@ -423,15 +394,13 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Does the proper action based on what the current location selected is
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    the proper action is made based on what the previous action was
+     * @param   x   x coordinate of the event
+     * @param         y   y coordinate of the event
+     * @param         player   the value of the player
      */
     public void actionAt(int x, int y, int player)
     {
@@ -460,7 +429,7 @@ public class CheckersBoard
                     if( moves[i].compareTo(thisMove) == 0)
                     {
                         makeMove(thisMove);
-                        if((isForcedMove && forcedMove(currentPlayer).length==0)|| !isForcedMove)
+                        if((isForcedMove && forcedMove(currentPlayer).length==0)|| !isForcedMove )
                         {
                             changePlayer();
                         }
@@ -475,15 +444,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Continues the game after a move is made.  Prints the current player and if a move is forced.
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    the current player has been printed and isForcedMove has been updated
      */
     public void continuePlay()
     {
@@ -501,15 +465,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Checks if any piece is in the other teams kings row.  If there is, it makes it a king piece
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    any piece in the other teams king's row has become a king
      */
     public void makeKing()
     {
@@ -534,15 +493,10 @@ public class CheckersBoard
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *  that describes the operation of the method
+     * Checks if the game is over
      *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
+     * @pre     the CheckersBoard object is initialized
+     * @post    if the game is over, the winner is printed
      */
     public void isGameOver()
     {
